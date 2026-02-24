@@ -8,23 +8,27 @@
 As a Solutions Architect based in Mumbai, I thrive on solving complex problems by designing elegant cloud architectures and impactful products.
 
 Focus areas:
-- Architecting intelligent, data-driven solutions using AI.
+- Architecting intelligent, data-driven solutions using AI 1.
 - Executing seamless cloud migrations and modernizing legacy systems for improved performance.
 - Ensuring architectural excellence and financial accountability via AWS Well-Architected Reviews and FinOps practices.
 - DArchitect and implement proof-of-concept prototypes using emerging technologies.
 
 You can find more information about me in my [Manual of me](ManualOfMe.md). 
 
-<a href="https://www.credly.com/badges/d56049d5-9051-4772-8184-06f935650652/public_url">
-<img src="https://raw.githubusercontent.com/robzwolf/cloud-cert-logos/main/2022/AWS-Cloud-Practitioner.png" width=15% height=15%>
+<a href="https://www.credly.com/badges/8757ad2f-6678-4bbc-8bb0-e4ddf1751335/public_url">
+<img src="https://raw.githubusercontent.com/paigurunath2025/paigurunath2025.github.io/main/cert-images/AWS-Cloud-Practitioner.png" width=15% height=15%>
 </a>
 
-<a href="https://www.credly.com/badges/7e08beca-959d-47e0-92e3-c622dc6a7dab/public_url">
-<img src="https://raw.githubusercontent.com/robzwolf/cloud-cert-logos/main/2022/AWS-Solutions-Architect-Associate.png" width=15% height=15%>
+<a href="https://www.credly.com/badges/fa92ead6-c361-4706-bcf8-da05bf776885/public_url">
+<img src="" width=15% height=15%>
 </a>
 
-<a href="https://www.credly.com/badges/9bc8ae64-0e6b-4bbb-b7ae-42f242d32bbd/public_url">
-<img src="https://raw.githubusercontent.com/robzwolf/cloud-cert-logos/main/2022/AWS-Solutions-Architect-Professional.png" width=15% height=15%>
+<a href="https://www.credly.com/badges/01f5f3db-f063-4c55-acc8-849005c588c6/public_url">
+<img src="" width=15% height=15%>
+</a>
+
+<a href="https://www.credly.com/badges/62bfcfb2-5ffc-483c-becb-49fb8c25332b/public_url">
+<img src="" width=15% height=15%>
 </a>
 
 <a href="https://www.credly.com/badges/fefef05f-d89a-460a-9c64-c188e7299f70/public_url">
