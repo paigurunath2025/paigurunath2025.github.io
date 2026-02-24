@@ -20,20 +20,25 @@ You can find more information about me in my [Manual of me](ManualOfMe.md).
 </a>
 
 <a href="https://www.credly.com/badges/fa92ead6-c361-4706-bcf8-da05bf776885/public_url">
-<img src="" width=15% height=15%>
+<img alt="Terraform" src="https://raw.githubusercontent.com/paigurunath2025/paigurunath2025.github.io/main/cert-images/hashicorp-certified-terraform-associate-003.png" width=15% height=15%>
 </a>
 
 <a href="https://www.credly.com/badges/01f5f3db-f063-4c55-acc8-849005c588c6/public_url">
-<img src="" width=15% height=15%>
+<img alt="Spring" src="https://raw.githubusercontent.com/paigurunath2025/paigurunath2025.github.io/main/cert-images/spring-framework-master-class.png" width=15% height=15%>
 </a>
 
 <a href="https://www.credly.com/badges/62bfcfb2-5ffc-483c-becb-49fb8c25332b/public_url">
-<img src="" width=15% height=15%>
+<img alt="Kafka" src="https://raw.githubusercontent.com/paigurunath2025/paigurunath2025.github.io/main/cert-images/apache-kafka-for-beginners.png" width=15% height=15%>
 </a>
 
-<a href="https://www.credly.com/badges/fefef05f-d89a-460a-9c64-c188e7299f70/public_url">
-<img src="https://raw.githubusercontent.com/robzwolf/cloud-cert-logos/main/2022/AWS-Machine-Learning-Specialty.png" width=15% height=15%>
+<a href="https://www.credly.com/badges/62bfcfb2-5ffc-483c-becb-49fb8c25332b/public_url">
+<img alt="System" src="https://raw.githubusercontent.com/paigurunath2025/paigurunath2025.github.io/main/cert-images/system-design-by-example.png" width=15% height=15%>
 </a>
+
+
+<!-- <a href="https://www.credly.com/badges/fefef05f-d89a-460a-9c64-c188e7299f70/public_url">
+<img src="https://raw.githubusercontent.com/robzwolf/cloud-cert-logos/main/2022/AWS-Machine-Learning-Specialty.png" width=15% height=15%>
+</a> -->
 
 # Projects
 **All case studies represent anonymized client work. Specific implementations and business details have been generalized to protect client confidentiality.**
