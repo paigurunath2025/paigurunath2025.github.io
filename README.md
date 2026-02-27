@@ -8,7 +8,7 @@
 As a Solutions Architect based in Mumbai, I thrive on solving complex problems by designing elegant cloud architectures and impactful products.
 
 Focus areas:
-- Architecting intelligent, data-driven solutions using AI 1.
+- Architecting intelligent, data-driven solutions using AI.
 - Executing seamless cloud migrations and modernizing legacy systems for improved performance.
 - Ensuring architectural excellence and financial accountability via AWS Well-Architected Reviews and FinOps practices.
 - DArchitect and implement proof-of-concept prototypes using emerging technologies.
@@ -43,22 +43,58 @@ You can find more information about me in my [Manual of me](ManualOfMe.md).
 # Projects
 **All case studies represent anonymized client work. Specific implementations and business details have been generalized to protect client confidentiality.**
 
-## 🏛 GenerativeAI-powered chatbot solution
+## <img src="robot_18531732.png" alt="alt text" width="30" height="30" style="pointer-events: none;"> AI Powered Web chatbot solution
 **Industry:** Retail
 
 ### Problem
-The company's sales department has a large knowledge base that stores data about the solutions previously developed by the company. With time passing, it becomes harder to navigate and find relevant information, so they want a solution that can find relevant information based on request.
+Financial advisors lacked an integrated system to map internal product offerings against specific client needs. The manual process of collecting client data and analyzing requirements caused a multi-week lag in providing product recommendations, resulting in missed opportunities and mismatched financial solutions.
+
+### Solution & Impact
+Architected and deployed an automated recommendation engine by integrating Salesforce with proprietary internal systems. The solution analyzes client interaction data and advisor conversations to deliver personalized product suggestions in real-time. This automation reduced the recommendation turnaround time from several weeks to under 30 minutes, significantly improving client engagement and advisor productivity.<br><br>
+
+<!-- 
+Advisors 
+
+To accelerate lead generation across the APAC, EMEA, and North American markets, the company is looking to supplement its conventional digital marketing strategies. The goal is to deploy a web-based chatbot that will enhance user engagement by providing immediate access to relevant product information and resources.
 
 ### Solution
-The solution implements a serverless RAG (Retrieval-Augmented Generation) architecture that combines enterprise knowledge bases with LLM capabilities, enabling sales teams to access accurate information through natural language queries.
+The solution implements a serverless RAG (Retrieval-Augmented Generation) architecture that combines enterprise knowledge bases with LLM capabilities, enabling sales teams to access accurate information through natural language queries. -->
 
-**Data Ingestion & Knowledge Base**: Corporate documents are stored in S3, partitioned by date for efficient organization. EventBridge Scheduler triggers daily ECS tasks that retrieve files in predefined formats and generate creation dates. A Step Functions workflow orchestrates the data pipeline — SageMaker Batch Transform extracts document information and structures it for S3 storage, followed by an ECS task that generates embeddings and persists them in Aurora PostgreSQL using the pgvector extension.
+<!-- **Data Ingestion & Knowledge Base**: Corporate documents are stored in S3, partitioned by date for efficient organization. EventBridge Scheduler triggers daily ECS tasks that retrieve files in predefined formats and generate creation dates. A Step Functions workflow orchestrates the data pipeline — SageMaker Batch Transform extracts document information and structures it for S3 storage, followed by an ECS task that generates embeddings and persists them in Aurora PostgreSQL using the pgvector extension.
 
 **Processing Architecture**: The backend uses API Gateway to authenticate users through Cognito User Pool and route requests to Lambda functions. The primary orchestrator Lambda logs sessions to DynamoDB, then invokes a RAG Lambda that retrieves the API token from SSM Parameter Store. This RAG function fetches relevant embeddings from Aurora and passes them with the user's query to the LLM provider, returning contextually-grounded responses rather than generic answers. Lambda handles the API layer with ~1s cold starts on first requests — acceptable for the sales team's query pattern of 20-30 daily searches — delivering 70% cost savings versus always-on ECS containers.
 
-**Frontend & Security**: A static website hosted on S3 and distributed via CloudFront provides global low-latency access. Route53 handles DNS with a registered domain, while WAF adds an additional security layer by inspecting requests at the edge before they reach the application.
+**Frontend & Security**: A static website hosted on S3 and distributed via CloudFront provides global low-latency access. Route53 handles DNS with a registered domain, while WAF adds an additional security layer by inspecting requests at the edge before they reach the application. -->
 
-<img src="images/generative-ai-solution.png"> 
+<img src="arch-images/salesforce3.drawio.svg"> 
+
+**Architecture explanation (Salesforce-integrated deployment):**  
+This design keeps the external entry path separate from the core chatbot workload by using a dedicated integration VPC and PrivateLink. Traffic then moves into a main workload VPC where ECS Fargate services run across two availability zones for higher availability. The data layer is split by access pattern: DynamoDB for fast session state, Aurora PostgreSQL for knowledge retrieval, and S3 for object storage. CloudWatch provides centralized observability, and downstream applications consume chatbot outputs for business workflows.
+
+**Numbered components and why they help the architecture:**
+**1. User request from Salesforce UI:** Users trigger chatbot requests from the Salesforce context. This improves adoption by keeping the workflow in tools already used by the sales team.
+
+**2. API Gateway:** API Gateway is the front door for request validation, throttling, and controlled API access. This standardizes ingress security and protects backend services.
+
+**3. AWS PrivateLink endpoint (integration VPC):** PrivateLink moves traffic privately between VPC boundaries without exposing internal services to the public internet. This reduces attack surface and supports stricter network controls.
+
+**4. Private connectivity into workload VPC:** The private endpoint path bridges the integration VPC to internal load balancers in the workload VPC. This enables clear network segmentation with controlled service-to-service access.
+
+**5. Network Load Balancer (NLB):** NLB handles private, low-latency L4 ingress and provides a stable target for PrivateLink traffic. This increases reliability and traffic-handling resilience.
+
+**6. Application Load Balancer (ALB):** ALB performs Layer-7 routing to backend services and health-based traffic distribution. This improves request routing flexibility and service reliability.
+
+**7. ECS Fargate services in AZ-1 and AZ-2:** Containerized chatbot/integration workloads run across multiple availability zones. This provides high availability, horizontal scaling, and removes server management overhead.
+
+**8. S3 Bucket:** S3 stores files, generated artifacts, and long-lived objects used by the chatbot flow. This gives durable and cost-efficient object storage.
+
+**9. CloudWatch:** CloudWatch collects logs, metrics, and alarms from the running stack. This strengthens observability and speeds up troubleshooting.
+
+**10. DynamoDB:** DynamoDB stores low-latency session and conversation metadata used during chat flows. This supports high request throughput and responsive interactions.
+
+**11. Aurora PostgreSQL:** Aurora PostgreSQL stores structured and retrieval-oriented data (including RAG-related context). This improves answer quality with consistent, queryable knowledge access.
+
+**12. Downstream applications (APP1-APP5):** Chatbot outputs and events are integrated with downstream business systems. This extends value beyond the chatbot by enabling process automation and cross-application actions.
 
 My responsibilities included:
 - Led cross-team communication to align requirements between multiple stakeholders
@@ -67,8 +103,9 @@ My responsibilities included:
 - Engineered automated data pipeline for continuous knowledge base updates
 - Created technical documentation including architecture diagrams, effort estimates, and TCO calculations
 
-**Technology stack:** CloudFront, Cognito, API Gateway, Lambda, ECS, DynamoDB, Aurora, S3.
-
+**Technology stack:** CloudFront, Cognito, API Gateway, Lambda, ECS, DynamoDB, Aurora, S3.<br>
+**Technology stack:** ECS Fargate, 
+<!-- 
 ## 🏛 HIPAA-compliant Data Lake and MLOps solution
 **Industry:** Healthcare
 
@@ -205,7 +242,7 @@ My responsibilities included:
 - Designed and implemented streaming ETL pipelines using Lambda and SQS FIFO queues
 - Established CI/CD processes for data pipelines using CodeBuild and AWS CDK
 - Designed MLOps pipeline with SageMaker Studio, CodeCommit, and automated model deployment
-- Implemented three-tier data lake architecture with event-driven processing for IoT data streams
+- Implemented three-tier data lake architecture with event-driven processing for IoT data streams -->
 
 # Contributions
 Beyond my technical work, I enjoy sharing knowledge through my APAWS newsletter and Medium blog, where I write about AWS architecture and MLOps patterns. I'm Ukraine's first AWS Community Builder in Machine Learning and contribute to open source — including Terraform/CDK reference implementations, cloud-nuke SageMaker modules, and the Excalidraw AWS icons set for architecture diagrams.
