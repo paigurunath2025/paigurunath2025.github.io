@@ -44,7 +44,7 @@ You can find more information about me in my [Manual of me](ManualOfMe.md).
 **All case studies represent anonymized client work. Specific implementations and business details have been generalized to protect client confidentiality.**
 
 ## <img src="robot_18531732.png" alt="alt text" width="30" height="30" style="pointer-events: none;"> AI Powered Web chatbot solution
-**Industry:** Retail
+**Industry:** Banking
 
 ### Problem
 Financial advisors lacked an integrated system to map internal product offerings against specific client needs. The manual process of collecting client data and analyzing requirements caused a multi-week lag in providing product recommendations, resulting in missed opportunities and mismatched financial solutions.
@@ -103,8 +103,36 @@ My responsibilities included:
 - Engineered automated data pipeline for continuous knowledge base updates
 - Created technical documentation including architecture diagrams, effort estimates, and TCO calculations
 
-**Technology stack:** CloudFront, Cognito, API Gateway, Lambda, ECS, DynamoDB, Aurora, S3.<br>
-**Technology stack:** ECS Fargate, 
+**Technology stack:** ECS Fargate, API Gateway, Lambda, ECS, DynamoDB, Aurora, S3.<br>
+**Technology stack:** 
+
+
+## <img src="icons/seo.png" alt="alt text" width="30" height="30" style="pointer-events: none;"> Enterprise Search Platform
+**Industry:** Corporate
+
+### Problem
+Addressed significant operational inefficiencies caused by fragmented data silos and the challenge of navigating vast repositories of internal documentation and application data.
+
+### Solution
+Spearheaded the development of a centralized Enterprise Search Platform, implementing automated document parsing and intelligent metadata tagging to drastically reduce information retrieval time and improve data discoverability across the firm.
+
+<img src="arch-images/searchengine.svg"> 
+
+**Architecture explanation (Salesforce-integrated deployment):**  
+
+
+**Numbered components and why they help the architecture:**
+- **1. Corporate Search engine:** Employee-facing entry point for enterprise search, keeping discovery inside the internal portal.
+- **2. NGINX:** Reverse-proxy and traffic routing layer in front of the Spring Boot services.
+- **3. Cloud Foundry:** Application platform hosting and managing the Spring Boot deployment runtime.
+- **4. Spring Boot Web App:** Core search service instance (part of the Spring Boot app tier) handling API/business logic.
+- **5. Logstash:** Ingestion and transformation pipeline that forwards processed records into the search cluster.
+- **6. Kibana:** Search analytics and operational visibility layer for indexed data.
+- **7. PostgreSQL:** Relational data store for structured metadata and application-side persistence.
+- **8. Elastic Cluster:** Primary distributed search/indexing engine used for retrieval at scale.
+- **9. Downstream Applications (APP1, APP2):** Consumer services that receive and use search outputs/events.
+- **10. On-Prem Cluster of Servers:** Internal source/target systems maintained in the enterprise on-prem environment.
+
 <!-- 
 ## 🏛 HIPAA-compliant Data Lake and MLOps solution
 **Industry:** Healthcare
