@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learnings</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        main {
+            display: flex;
+        }
+        #blog-list {
+            width: 30%;
+            border-right: 1px solid #ccc;
+            padding-right: 1rem;
+        }
+        #blog-content {
+            width: 70%;
+            padding-left: 1rem;
+        }
+        .active {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Learnings</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="blog-list">
+            <h2>Recent Posts</h2>
+            <ul>
+                <li><a href="#" data-blog="blog1" class="blog-link">Building a Recommendation System with Collaborative Filtering</a></li>
+                <li><a href="#" data-blog="blog2" class="blog-link">Understanding Large Language Models (LLMs)</a></li>
+            </ul>
+        </section>
+        <section id="blog-content">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Gurunath Pai</p>
+    </footer>
+
+    <script>
+        const blogContent = document.getElementById('blog-content');
+        const blogList = document.getElementById('blog-list');
+        const blogLinks = document.querySelectorAll('.blog-link');
+
+        const blogs = {
+            'blog1': `
+# Building a Recommendation System with Collaborative Filtering
+
+## Introduction
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
+
+## Collaborative Filtering
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
+            `,
+            'blog2': `
+# Understanding Large Language Models (LLMs)
+
+## What are LLMs?
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
+
+## Applications of LLMs
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
+            `
+        };
+
+        function loadBlog(blogId) {
+            blogContent.innerHTML = marked.parse(blogs[blogId]);
+            blogLinks.forEach(link => {
+                if (link.dataset.blog === blogId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        blogList.addEventListener('click', (event) => {
+            event.preventDefault();
+            const blogId = event.target.dataset.blog;
+            if (blogId) {
+                loadBlog(blogId);
+            }
+        });
+
+        // Load the first blog by default
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBlog('blog1');
+        });
+    </script>
+</body>
+</html>

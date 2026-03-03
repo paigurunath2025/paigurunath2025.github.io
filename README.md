@@ -1,5 +1,5 @@
 # Gurunath Pai
-### Solutions Architect | AI Evangalist | [LinkedIn](https://linkedin.com/in/gurunath-pai)
+### Solutions Architect | AI Evangalist | [LinkedIn](https://linkedin.com/in/gurunath-pai) | [My Learnings](./learnings/learnings.html)
 
 As a Solutions Architect based in Mumbai, I thrive on solving complex problems by designing elegant cloud architectures and impactful products.
 
@@ -167,3 +167,9 @@ Beyond my technical work, I enjoy sharing knowledge through my APAWS newsletter 
 <a href="https://medium.com/@annpastushko">
 <img src="https://cdn4.iconfinder.com/data/icons/social-media-2210/24/Medium-512.png" width=15%>
 </a> -->
+
+# My Learnings
+I believe in continuous learning and sharing my knowledge with the community. Here are some of my writings on various topics.
+
+[Explore my learnings](./learnings/learnings.html)
+

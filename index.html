@@ -15,6 +15,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
     <!-- <script src="/_vercel/insights/script.js"></script> -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Force white background for the entire page */
         body { background-color: #ffffff; margin: 0; }
@@ -157,6 +158,8 @@
                     event.preventDefault();
                     renderMarkdown(destination);
                     window.scrollTo(0, 0);
+                } else if (destination && destination.endsWith('.html') && !destination.startsWith('http')) {
+                    // Allow normal navigation for .html files
                 }
             }
         });
