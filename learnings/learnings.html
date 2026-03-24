@@ -4,26 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Learnings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
     <link rel="stylesheet" href="../styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-        main {
-            display: flex;
-        }
-        #blog-list {
-            width: 30%;
-            border-right: 1px solid #ccc;
-            padding-right: 1rem;
-        }
-        #blog-content {
-            width: 70%;
-            padding-left: 1rem;
-        }
-        .active {
-            font-weight: bold;
-            color: #007bff;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -34,15 +17,13 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="container">
         <section id="blog-list">
             <h2>Recent Posts</h2>
-            <ul>
-                <li><a href="#" data-blog="blog1" class="blog-link">Building a Recommendation System with Collaborative Filtering</a></li>
-                <li><a href="#" data-blog="blog2" class="blog-link">Understanding Large Language Models (LLMs)</a></li>
+            <ul id="blog-links">
             </ul>
         </section>
-        <section id="blog-content">
+        <section id="blog-content" class="markdown-body">
         </section>
     </main>
     <footer>
@@ -51,52 +32,53 @@
 
     <script>
         const blogContent = document.getElementById('blog-content');
-        const blogList = document.getElementById('blog-list');
-        const blogLinks = document.querySelectorAll('.blog-link');
+        const blogLinksContainer = document.getElementById('blog-links');
+        let blogs = [];
 
-        const blogs = {
-            'blog1': `
-# Building a Recommendation System with Collaborative Filtering
+        async function loadBlog(blogId) {
+            const blog = blogs.find(b => b.id === blogId);
+            if (blog) {
+                const response = await fetch(blog.file);
+                const markdown = await response.text();
+                blogContent.innerHTML = marked.parse(markdown);
 
-## Introduction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
-
-## Collaborative Filtering
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
-            `,
-            'blog2': `
-# Understanding Large Language Models (LLMs)
-
-## What are LLMs?
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
-
-## Applications of LLMs
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et est erat. Nunc vel erat vitae nunc posuere sodales. ...
-            `
-        };
-
-        function loadBlog(blogId) {
-            blogContent.innerHTML = marked.parse(blogs[blogId]);
-            blogLinks.forEach(link => {
-                if (link.dataset.blog === blogId) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
+                document.querySelectorAll('.blog-link').forEach(link => {
+                    if (link.dataset.blog === blogId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
         }
 
-        blogList.addEventListener('click', (event) => {
+        blogLinksContainer.addEventListener('click', (event) => {
             event.preventDefault();
             const blogId = event.target.dataset.blog;
             if (blogId) {
                 loadBlog(blogId);
+                window.scrollTo(0, 0);
             }
         });
 
-        // Load the first blog by default
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBlog('blog1');
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('blogs.json');
+            blogs = await response.json();
+
+            blogs.forEach(blog => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.dataset.blog = blog.id;
+                a.classList.add('blog-link');
+                a.textContent = blog.title;
+                li.appendChild(a);
+                blogLinksContainer.appendChild(li);
+            });
+
+            if (blogs.length > 0) {
+                loadBlog(blogs[0].id);
+            }
         });
     </script>
 </body>

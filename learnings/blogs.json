@@ -1,0 +1,12 @@
+[
+    {
+        "id": "blog1",
+        "title": "Mastering Gemini Code Assist in VS Code: A Developer's 2026 Guide",
+        "file": "blog1.md"
+    },
+    {
+        "id": "blog2",
+        "title": "Understanding Large Language Models (LLMs)",
+        "file": "blog2.md"
+    }
+]
