@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
   <diagram name="Page-1" id="-d6QA2VNDxFc35302yUx">
     <mxGraphModel dx="2133" dy="813" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
@@ -26,10 +25,10 @@
         <mxCell id="kKTs6pn-BoHdbbE4lhIF-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF2247;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px; color: rgb(255, 255, 255);&quot;&gt;6&lt;/font&gt;" vertex="1">
           <mxGeometry height="28" width="28" x="-56" y="200" as="geometry" />
         </mxCell>
-        <mxCell id="kKTs6pn-BoHdbbE4lhIF-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF2247;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px; color: rgb(255, 255, 255);&quot;&gt;6&lt;/font&gt;" vertex="1">
+        <mxCell id="kKTs6pn-BoHdbbE4lhIF-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF2247;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px; color: rgb(255, 255, 255);&quot;&gt;7&lt;/font&gt;" vertex="1">
           <mxGeometry height="28" width="28" x="850" y="350" as="geometry" />
         </mxCell>
-        <mxCell id="kKTs6pn-BoHdbbE4lhIF-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF2247;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px; color: rgb(255, 255, 255);&quot;&gt;7&lt;/font&gt;" vertex="1">
+        <mxCell id="kKTs6pn-BoHdbbE4lhIF-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FF2247;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px; color: rgb(255, 255, 255);&quot;&gt;8&lt;/font&gt;" vertex="1">
           <mxGeometry height="28" width="28" x="900" y="350" as="geometry" />
         </mxCell>
       </root>
